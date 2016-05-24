@@ -28,6 +28,7 @@
                     <option value="part">Частица</option>
                     <option value="other">Другое</option>
                 </select>
+                
 <!--                <input type="">-->
                 <input type="submit" value="Добавить слово">
             </form>

@@ -50,6 +50,34 @@ $(document).ready(function() {
     });
 
     $("#sentences_generate").submit(function(){
+        if(!error){
+            var data = form.serialize();
+            $.ajax({
+                type: 'POST',
+                url: 'action.php',
+                dataType: 'json',
+                data: data,
+
+                beforeSend: function(data) {
+                    form.find('input[type="submit"]').attr('disabled', 'disabled');
+                },
+                success: function(data){ // сoбытиe пoслe удaчнoгo oбрaщeния к сeрвeру и пoлучeния oтвeтa
+                    if (data['error']) {
+                        $('.add_word_message').text(data['error']);
+                    } else {
+                        $('.add_word_message').text('Слово добавлено, Бля');
+                    }
+                },
+                error: function (xhr, ajaxOptions, thrownError) { // в случae нeудaчнoгo зaвeршeния зaпрoсa к сeрвeру
+                    alert(xhr.status);
+                    alert(thrownError);
+                },
+                complete: function(data) { // сoбытиe пoслe любoгo исхoдa
+                    form.find('input[type="submit"]').prop('disabled', false); // в любoм случae включим кнoпку oбрaтнo
+                }
+
+            });
+        }
         alert("sentences_generate");
         return false;
     });
