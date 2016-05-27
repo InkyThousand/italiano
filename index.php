@@ -19,7 +19,8 @@
     <div class="main">
         <div class="form">
             <form action="" method="post" id="add_word">
-                <input type="text" placeholder="New word" name="new_word" pattern="^[A-Za-zА-Яа-яЁё\s]+$">
+                <input type="text" placeholder="Слово" name="new_word" pattern="^[A-Za-zА-Яа-яЁё\s]+$">
+                <input type="text" placeholder="Перевод" name="new_word_translate" pattern="^[A-Za-zА-Яа-яЁё\s]+$">
                 <select name="category" id="">
                     <option value="noun">Существительное</option>
                     <option value="verb">Глагол</option>
@@ -28,7 +29,7 @@
                     <option value="part">Частица</option>
                     <option value="other">Другое</option>
                 </select>
-                
+
 <!--                <input type="">-->
                 <input type="submit" value="Добавить слово">
             </form>
